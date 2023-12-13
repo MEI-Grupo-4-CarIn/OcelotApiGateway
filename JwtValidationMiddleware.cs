@@ -1,31 +1,41 @@
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using System.Net.Http;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+
 namespace OcelotApiGateway
 {
     public class JwtValidationMiddleware
     {
-        private readonly OcelotRequestDelegate _next;
+        private readonly RequestDelegate _next;
         private readonly IHttpClientFactory _clientFactory;
         private readonly string _authMicroserviceUrl;
-        private readonly List<string> _openEndpoints = new List<string> { "/api/open/endpoint1", "/api/open/endpoint2" };
+        private readonly List<string> _openEndpoints = new List<string>
+        {
+            "/api/users/all-users-list"
+        };
 
-        public JwtValidationMiddleware(OcelotRequestDelegate next, IHttpClientFactory clientFactory, IConfiguration configuration)
+        public JwtValidationMiddleware(RequestDelegate next, IHttpClientFactory clientFactory, IConfiguration configuration)
         {
             _next = next;
             _clientFactory = clientFactory;
             _authMicroserviceUrl = configuration["AuthMicroserviceUrl"];
         }
 
-        public async Task Invoke(DownstreamContext context)
+        public async Task Invoke(HttpContext context)
         {
-            var path = context.HttpContext.Request.Path.Value;
+            var path = context.Request.Path.Value;
 
             if (_openEndpoints.Contains(path))
             {
-                await _next.Invoke(context);
+                await _next(context);
                 return;
             }
 
             var client = _clientFactory.CreateClient();
-            var token = context.HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
             if (token != null)
             {
@@ -33,16 +43,16 @@ namespace OcelotApiGateway
 
                 if (response.IsSuccessStatusCode)
                 {
-                    await _next.Invoke(context);
+                    await _next(context);
                 }
                 else
                 {
-                    context.HttpContext.Response.StatusCode = 401;
+                    context.Response.StatusCode = 401;
                 }
             }
             else
             {
-                context.HttpContext.Response.StatusCode = 401;
+                context.Response.StatusCode = 401;
             }
         }
     }
