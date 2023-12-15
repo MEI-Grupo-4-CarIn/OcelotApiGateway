@@ -15,10 +15,21 @@
         "POST",
         "PATCH",
         "DELETE"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/users/all-users-list",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44383
+        }
       ],
-      "DownstreamHeaderTransform": {
-        "Content-Type": "{Content-Type}"
-      }
+      "UpstreamPathTemplate": "/api/users/all-users-list",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/users/{everything}",
@@ -36,9 +47,80 @@
         "PATCH",
         "DELETE"
       ],
-      "DownstreamHeaderTransform": {
-        "Content-Type": "{Content-Type}"
-      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "JwtAuthentication"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/vehicles/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/vehicles/{everything}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "JwtAuthentication"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/vehicles",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/vehicles",
+      "UpstreamHttpMethod": [
+        "GET"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "JwtAuthentication"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/routes/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/routes/{everything}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "JwtAuthentication"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/routes",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/routes",
+      "UpstreamHttpMethod": [
+        "GET"
+      ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "JwtAuthentication"
       }
