@@ -2,11 +2,11 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/api/auth/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44383
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/api/auth/{everything}",
@@ -19,11 +19,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/users/all-users-list",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44383
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/api/users/all-users-list",
@@ -33,11 +33,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/users/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 44383
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/api/users/{everything}",
