@@ -30,7 +30,7 @@ This API Gateway is part of a larger project that includes other microservices. 
 3. Navigate to `ais_project` folder and run the Docker Compose file to start all the services:
 
     ```bash
-    docker-compose up
+    docker-compose up -d
     ```
 
 This will start all the microservices defined in the `docker-compose.yml` file, including the Ocelot API Gateway. You can then access the API Gateway at the specified host and port.
