@@ -1,0 +1,82 @@
+version: "3.9"
+services:
+  auth-microservice:
+    image: duartefernandes/auth-microservice:latest
+    container_name: auth_microservice
+    ports:
+      - "5001:8080"
+    depends_on:
+      - sql-server-docker
+      - elasticsearch
+    environment:
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+      ConnectionStrings__DefaultConnection: ${SQL_SERVER_CONNECTION_STRING}
+      Elasticsearch__Url: http://elasticsearch:9200
+  sql-server-docker:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    container_name: sql-server-docker
+    ports:
+      - "1434:1433"
+    environment:
+      - ACCEPT_EULA=y
+      - SA_PASSWORD=${SA_PASSWORD}
+    volumes:
+      - sql_data:/var/opt/mssql
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.15
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.15
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+  vehicles-microservice:
+    image: duartefernandes/vehicles-microservice:latest
+    container_name: vehicles_microservice
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo-db-project
+    environment:
+      - MONGO_URI=${MONGO_URI_VEHICLES}
+      - JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}
+      - SERVICE_SECRET_KEY=${SERVICE_SECRET_KEY}
+  routes-microservice:
+    image: duartefernandes/routes-microservice:latest
+    container_name: routes_microservice
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongo-db-project
+    environment:
+      - MONGO_URI=${MONGO_URI_ROUTES}
+      - OPENROUTESERVICE_API_URL=${OPENROUTESERVICE_API_URL}
+      - OPENROUTESERVICE_API_KEY=${OPENROUTESERVICE_API_KEY}
+      - VEHICLE_MICROSERVICE_API_URL=${VEHICLE_MICROSERVICE_API_URL}
+      - AUTH_MICROSERVICE_API_URL=${AUTH_MICROSERVICE_API_URL}
+      - JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}
+      - SERVICE_SECRET_KEY=${SERVICE_SECRET_KEY}
+  mongo-db-project:
+    image: mongo:latest
+    container_name: mongo_db_project
+    ports:
+      - "27018:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - mongodb_data:/data/db
+volumes:
+  sql_data:
+  esdata:
+  mongodb_data:
