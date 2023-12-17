@@ -77,8 +77,7 @@ services:
     volumes:
       - mongodb_data:/data/db
   ocelot-api-gateway:
-    # image: duartefernandes/ocelot-api-gateway:latest
-    build: ../
+    image: duartefernandes/ocelot-api-gateway:latest
     ports:
       - "9000:8080"
     depends_on:
