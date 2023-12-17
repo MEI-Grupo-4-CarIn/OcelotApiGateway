@@ -6,7 +6,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "auth-microservice",
-          "Port": 5001
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/auth/{everything}",
@@ -23,7 +23,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "auth-microservice",
-          "Port": 5001
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/users/all-users-list",
@@ -37,7 +37,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "auth-microservice",
-          "Port": 5001
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/users/{everything}",
