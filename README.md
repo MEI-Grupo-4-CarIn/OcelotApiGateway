@@ -26,6 +26,12 @@ This API Gateway is part of a larger project that includes other microservices. 
     - `JWT_PUBLIC_KEY`: Your JWT public key.
     - `SERVICE_SECRET_KEY`: Your service secret key.
     - `SMTP_PASSWORD`: Your SMTP password.
+    - `AUTH_MICROSERVICE_HOST`: The hostname for the authentication microservice.
+    - `AUTH_MICROSERVICE_PORT`: The port for the authentication microservice.
+    - `VEHICLES_MICROSERVICE_HOST`: The hostname for the vehicles microservice.
+    - `VEHICLES_MICROSERVICE_PORT`: The port for the vehicles microservice.
+    - `ROUTES_MICROSERVICE_HOST`: The hostname for the routes microservice.
+    - `ROUTES_MICROSERVICE_PORT`: The port for the routes microservice.
 
 3. Navigate to `ais_project` folder and run the Docker Compose file to start all the services:
 

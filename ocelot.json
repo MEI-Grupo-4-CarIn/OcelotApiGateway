@@ -5,8 +5,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5001
+          "Host": "{AUTH_MICROSERVICE_HOST}",
+          "Port": "{AUTH_MICROSERVICE_PORT}"
         }
       ],
       "UpstreamPathTemplate": "/api/auth/{everything}",
@@ -22,8 +22,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5001
+          "Host": "{AUTH_MICROSERVICE_HOST}",
+          "Port": "{AUTH_MICROSERVICE_PORT}"
         }
       ],
       "UpstreamPathTemplate": "/api/users/all-users-list",
@@ -36,8 +36,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5001
+          "Host": "{AUTH_MICROSERVICE_HOST}",
+          "Port": "{AUTH_MICROSERVICE_PORT}"
         }
       ],
       "UpstreamPathTemplate": "/api/users/{everything}",
@@ -56,8 +56,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 3000
+          "Host": "{VEHICLES_MICROSERVICE_HOST}",
+          "Port": "{VEHICLES_MICROSERVICE_PORT}"
         }
       ],
       "UpstreamPathTemplate": "/api/vehicles/{everything}",
@@ -76,8 +76,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 3000
+          "Host": "{VEHICLES_MICROSERVICE_HOST}",
+          "Port": "{VEHICLES_MICROSERVICE_PORT}"
         }
       ],
       "UpstreamPathTemplate": "/api/vehicles",
@@ -93,8 +93,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 3001
+          "Host": "{ROUTES_MICROSERVICE_HOST}",
+          "Port": "{ROUTES_MICROSERVICE_PORT}"
         }
       ],
       "UpstreamPathTemplate": "/api/routes/{everything}",
@@ -113,8 +113,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 3001
+          "Host": "{ROUTES_MICROSERVICE_HOST}",
+          "Port": "{ROUTES_MICROSERVICE_PORT}"
         }
       ],
       "UpstreamPathTemplate": "/api/routes",
