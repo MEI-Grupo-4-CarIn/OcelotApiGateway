@@ -17,9 +17,8 @@ namespace OcelotApiGateway
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
-                .AddEnvironmentVariables();
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 
             var config = builder.Build();
 
@@ -29,8 +28,7 @@ namespace OcelotApiGateway
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config
-                    .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
-                    .AddEnvironmentVariables();
+                    .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
             })
             .ConfigureServices(s =>
             {
