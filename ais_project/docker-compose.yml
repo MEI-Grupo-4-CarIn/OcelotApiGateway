@@ -76,6 +76,17 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
       - mongodb_data:/data/db
+  ocelot-api-gateway:
+    image: duartefernandes/ocelot-api-gateway:latest
+    ports:
+      - "9000:8080"
+    depends_on:
+      - auth-microservice
+      - vehicles-microservice
+      - routes-microservice
+      - sql-server-docker
+      - elasticsearch
+      - mongo-db-project
 volumes:
   sql_data:
   esdata:
