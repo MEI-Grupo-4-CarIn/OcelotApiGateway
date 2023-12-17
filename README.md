@@ -1,5 +1,10 @@
 # Ocelot API Gateway
 
+[![Docker Hub](https://img.shields.io/badge/Docker%20Hub-OcelotApiGateway-blue)](https://hub.docker.com/r/duartefernandes/ocelot-api-gateway)
+[![Docker Image Version (latest by date)](https://img.shields.io/docker/v/duartefernandes/ocelot-api-gateway?label=version)](https://hub.docker.com/r/duartefernandes/ocelot-api-gateway)
+[![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/duartefernandes/ocelot-api-gateway?label=size)](https://hub.docker.com/r/duartefernandes/ocelot-api-gateway)
+[![Docker Pulls](https://img.shields.io/docker/pulls/duartefernandes/ocelot-api-gateway)](https://hub.docker.com/r/duartefernandes/ocelot-api-gateway)
+
 This project is an implementation of an API Gateway using the Ocelot library. The API Gateway provides a single entry point for client applications and routes requests to appropriate microservices. It also handles tasks such as authentication and load balancing.
 
 This API Gateway is part of a larger project that includes other microservices. The other components of the project can be found at the following links:
