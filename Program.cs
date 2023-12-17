@@ -28,7 +28,7 @@ namespace OcelotApiGateway
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config
-                    .AddJsonFile("ocelot.json")
+                    .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
                     .AddEnvironmentVariables();
             })
             .ConfigureServices(s =>
