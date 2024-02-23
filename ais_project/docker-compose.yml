@@ -47,10 +47,12 @@ services:
       - "3000:3000"
     depends_on:
       - mongo-db-project
+      - elasticsearch
     environment:
       - MONGO_URI=${MONGO_URI_VEHICLES}
       - JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}
       - SERVICE_SECRET_KEY=${SERVICE_SECRET_KEY}
+      - ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST}
   routes-microservice:
     image: duartefernandes/routes-microservice:latest
     container_name: routes_microservice
@@ -58,6 +60,7 @@ services:
       - "3001:3001"
     depends_on:
       - mongo-db-project
+      - elasticsearch
     environment:
       - MONGO_URI=${MONGO_URI_ROUTES}
       - OPENROUTESERVICE_API_URL=${OPENROUTESERVICE_API_URL}
@@ -66,6 +69,7 @@ services:
       - AUTH_MICROSERVICE_API_URL=${AUTH_MICROSERVICE_API_URL}
       - JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}
       - SERVICE_SECRET_KEY=${SERVICE_SECRET_KEY}
+      - ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST}
       - RABBITMQ_URI=${RABBITMQ_URI}
   external-event-handler:
     image: duartefernandes/external-event-handler:latest
