@@ -66,6 +66,16 @@ services:
       - AUTH_MICROSERVICE_API_URL=${AUTH_MICROSERVICE_API_URL}
       - JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}
       - SERVICE_SECRET_KEY=${SERVICE_SECRET_KEY}
+      - RABBITMQ_URI=${RABBITMQ_URI}
+  external-event-handler:
+    image: duartefernandes/external-event-handler:latest
+    container_name: external_event_handler
+    ports:
+      - "3001:3001"
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_URI=${RABBITMQ_URI}
   mongo-db-project:
     image: mongo:latest
     container_name: mongo_db_project
@@ -76,6 +86,17 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
       - mongodb_data:/data/db
+  rabbitmq:
+    image: "rabbitmq:management"
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
   ocelot-api-gateway:
     image: duartefernandes/ocelot-api-gateway:latest
     ports:
@@ -87,7 +108,9 @@ services:
       - sql-server-docker
       - elasticsearch
       - mongo-db-project
+      - rabbitmq
 volumes:
   sql_data:
   esdata:
   mongodb_data:
+  rabbitmq_data:
