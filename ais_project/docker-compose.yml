@@ -71,7 +71,7 @@ services:
     image: duartefernandes/external-event-handler:latest
     container_name: external_event_handler
     ports:
-      - "3001:3001"
+      - "3002:3002"
     depends_on:
       - rabbitmq
     environment:
