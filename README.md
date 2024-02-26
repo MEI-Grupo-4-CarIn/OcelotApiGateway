@@ -11,6 +11,11 @@ This API Gateway is part of a larger project that includes other microservices. 
  - [Auth.MicroService](https://github.com/duartefernandes/Auth.MicroService)
  - [Vehicles.MicroService](https://github.com/duartefernandes/Vehicles.MicroService)
  - [Routes.MicroService](https://github.com/Rafa26Azevedo/Routes.MicroService)
+ - [ExternalEventHandler](https://github.com/MEI-Grupo-4-CarIn/ExternalEventHandler)
+
+## System Architecture
+
+![System Architecture](./assets/system_architecture.png)
 
 ## Setup (with Docker)
 
@@ -31,6 +36,8 @@ This API Gateway is part of a larger project that includes other microservices. 
     - `JWT_PUBLIC_KEY`: Your JWT public key.
     - `SERVICE_SECRET_KEY`: Your service secret key.
     - `SMTP_PASSWORD`: Your SMTP password.
+    - `ELASTICSEARCH_HOST`: The Elasticsearch host.
+    - `RABBITMQ_URI`: The base URL of your _RabbitMQ_ instance.
 
 3. Navigate to `ais_project` folder and run the Docker Compose file to start all the services:
 
