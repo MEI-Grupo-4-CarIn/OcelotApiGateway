@@ -393,5 +393,8 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+# Ignore the .idea folder
+.idea/
+
 .env
 .DS_Store

@@ -39,7 +39,7 @@ This API Gateway is part of a larger project that includes other microservices. 
     - `ELASTICSEARCH_HOST`: The Elasticsearch host.
     - `RABBITMQ_URI`: The base URL of your _RabbitMQ_ instance.
 
-3. Navigate to `ais_project` folder and run the Docker Compose file to start all the services:
+3. Navigate to `compose_project` folder and run the Docker Compose file to start all the services:
 
     ```bash
     docker-compose up -d
