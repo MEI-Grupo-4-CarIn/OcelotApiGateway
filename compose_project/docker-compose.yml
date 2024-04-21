@@ -14,7 +14,7 @@ services:
       Elasticsearch__Url: http://elasticsearch:9200
   sql-server-docker:
     image: "mcr.microsoft.com/mssql/server:2022-latest"
-    container_name: sql-server-docker
+    container_name: sql_server_docker
     ports:
       - "1434:1433"
     environment:
