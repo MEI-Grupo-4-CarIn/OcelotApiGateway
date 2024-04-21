@@ -50,10 +50,18 @@ namespace OcelotApiGateway
                             IssuerSigningKey = new RsaSecurityKey(rsa.ExportParameters(false))
                         };
                     });
+                s.AddCors(options =>
+                {
+                    options.AddPolicy("AllowAllOrigins",
+                        builder => builder.AllowAnyOrigin()
+                                          .AllowAnyMethod()
+                                          .AllowAnyHeader());
+                });
             })
             .UseIISIntegration()
             .Configure(app =>
             {
+                app.UseCors("AllowAllOrigins");
                 app.UseAuthentication();
                 app.UseOcelot().Wait();
             })
