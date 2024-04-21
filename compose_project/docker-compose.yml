@@ -103,6 +103,7 @@ services:
       - rabbitmq_data:/var/lib/rabbitmq
   ocelot-api-gateway:
     image: duartefernandes/ocelot-api-gateway:latest
+    container_name: ocelot_api_gateway
     ports:
       - "9000:8080"
     depends_on:
