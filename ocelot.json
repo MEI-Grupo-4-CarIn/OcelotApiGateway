@@ -9,7 +9,7 @@
           "Port": 8080
         }
       ],
-      "UpstreamPathTemplate": "/api/auth/{everything}",
+      "UpstreamPathTemplate": "/auth/{everything}",
       "UpstreamHttpMethod": [
         "GET",
         "POST",
@@ -18,7 +18,7 @@
       ]
     },
     {
-      "DownstreamPathTemplate": "/api/users/all-users-list",
+      "DownstreamPathTemplate": "/api/users",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -26,7 +26,7 @@
           "Port": 8080
         }
       ],
-      "UpstreamPathTemplate": "/api/users/all-users-list",
+      "UpstreamPathTemplate": "/users",
       "UpstreamHttpMethod": [
         "GET"
       ]
@@ -40,7 +40,7 @@
           "Port": 8080
         }
       ],
-      "UpstreamPathTemplate": "/api/users/{everything}",
+      "UpstreamPathTemplate": "/users/{everything}",
       "UpstreamHttpMethod": [
         "GET",
         "POST",
@@ -60,7 +60,7 @@
           "Port": 3000
         }
       ],
-      "UpstreamPathTemplate": "/api/vehicles/{everything}",
+      "UpstreamPathTemplate": "/vehicles/{everything}",
       "UpstreamHttpMethod": [
         "GET",
         "POST",
@@ -80,7 +80,7 @@
           "Port": 3000
         }
       ],
-      "UpstreamPathTemplate": "/api/vehicles",
+      "UpstreamPathTemplate": "/vehicles",
       "UpstreamHttpMethod": [
         "GET"
       ],
@@ -97,7 +97,7 @@
           "Port": 3001
         }
       ],
-      "UpstreamPathTemplate": "/api/routes/{everything}",
+      "UpstreamPathTemplate": "/routes/{everything}",
       "UpstreamHttpMethod": [
         "GET",
         "POST",
@@ -117,7 +117,7 @@
           "Port": 3001
         }
       ],
-      "UpstreamPathTemplate": "/api/routes",
+      "UpstreamPathTemplate": "/routes",
       "UpstreamHttpMethod": [
         "GET"
       ],
