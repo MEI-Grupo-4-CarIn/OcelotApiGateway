@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const VehicleSchema = new mongoose.Schema(
+const VehicleSchema = new Schema(
   {
     model: { type: String, required: true },
     brand: { type: String, required: true },
@@ -43,4 +44,4 @@ VehicleSchema.index({ status: 1 });
 VehicleSchema.index({ fuelType: 1, status: 1 });
 VehicleSchema.index({ isDeleted: 1 });
 
-module.exports = mongoose.model("Vehicle", VehicleSchema);
+module.exports = VehicleSchema;

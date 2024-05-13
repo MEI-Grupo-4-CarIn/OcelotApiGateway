@@ -1,11 +1,25 @@
+const mongoose = require("mongoose");
+const fs = require("fs");
+const path = require("path");
 const { seedUsers, getSomeDriversUserId } = require("./usersSeed");
-const { seedVehicles, getSomeVehicleIds } = require("./vehiclesSeed");
-const { seedRoutes } = require("./routesSeed");
+const VehiclesSeed = require("./vehiclesSeed");
+const RoutesSeed = require("./routesSeed");
+
+const envPath = path.join(__dirname, "../.env");
+if (fs.existsSync(envPath)) {
+  require("dotenv").config({ path: envPath });
+}
 
 async function seed() {
   try {
-    totalEntries = 1000000;
-    batchSize = 10000;
+    const vehiclesConnection = await mongoose.createConnection(process.env.MONGO_URI_VEHICLES).asPromise();
+    const routesConnection = await mongoose.createConnection(process.env.MONGO_URI_ROUTES).asPromise();
+
+    const vehiclesSeed = new VehiclesSeed(vehiclesConnection);
+    const routesSeed = new RoutesSeed(routesConnection);
+
+    const totalEntries = 1000000;
+    const batchSize = 10000;
 
     console.log(`-- Start seeding users with ${totalEntries} entries...`);
     await seedUsers(totalEntries, batchSize);
@@ -14,13 +28,13 @@ async function seed() {
     const driversIds = await getSomeDriversUserId(totalEntries / 2);
 
     console.log(`-- Start seeding vehicles with ${totalEntries} entries...`);
-    await seedVehicles(totalEntries, batchSize);
+    await vehiclesSeed.seedVehicles(totalEntries, batchSize);
 
     console.log(`------ Getting some vehicleIds...`);
-    const vehicleIds = await getSomeVehicleIds(totalEntries / 2);
+    const vehicleIds = await vehiclesSeed.getSomeVehicleIds(totalEntries / 2);
 
     console.log(`-- Start seeding routes with ${totalEntries} entries...`);
-    await seedRoutes(totalEntries, batchSize, driversIds, vehicleIds);
+    await routesSeed.seedRoutes(totalEntries, batchSize, driversIds, vehicleIds);
 
     console.log("-- Seeding process completed successfully.");
     process.exit(0);

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const LocationSchema = new mongoose.Schema(
+const LocationSchema = new Schema(
   {
     city: { type: String, required: true },
     country: { type: String, required: true },
@@ -9,7 +10,7 @@ const LocationSchema = new mongoose.Schema(
   { _id: false }
 );
 
-const RouteSchema = new mongoose.Schema(
+const RouteSchema = new Schema(
   {
     userId: { type: String, required: true },
     vehicleId: { type: String, required: true },
@@ -42,4 +43,4 @@ RouteSchema.index({
 RouteSchema.index({ isDeleted: 1 });
 RouteSchema.index({ status: 1 });
 
-module.exports = mongoose.model("Route", RouteSchema);
+module.exports = RouteSchema;
