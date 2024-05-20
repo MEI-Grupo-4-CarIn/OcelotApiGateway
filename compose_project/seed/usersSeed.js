@@ -59,10 +59,6 @@ async function seedUsers(totalEntries, batchSize) {
     while (entriesInserted < totalEntries) {
       // Generate users data
       const data = generateUsersData(batchSize);
-      if (entriesInserted == 0) {
-        table.rows.add("Admin", "Admin", "admin@email.com", "12345678", new Date(), 1, 1, null, new Date());
-      }
-
       entriesInserted += data.length;
 
       for (let i = 0; i < data.length; i++) {
