@@ -10,12 +10,7 @@
         }
       ],
       "UpstreamPathTemplate": "/auth/{everything}",
-      "UpstreamHttpMethod": [
-        "GET",
-        "POST",
-        "PATCH",
-        "DELETE"
-      ]
+      "UpstreamHttpMethod": ["GET", "POST", "PATCH", "DELETE"]
     },
     {
       "DownstreamPathTemplate": "/api/users",
@@ -27,9 +22,7 @@
         }
       ],
       "UpstreamPathTemplate": "/users",
-      "UpstreamHttpMethod": [
-        "GET"
-      ]
+      "UpstreamHttpMethod": ["GET"]
     },
     {
       "DownstreamPathTemplate": "/api/users/{everything}",
@@ -41,12 +34,7 @@
         }
       ],
       "UpstreamPathTemplate": "/users/{everything}",
-      "UpstreamHttpMethod": [
-        "GET",
-        "POST",
-        "PATCH",
-        "DELETE"
-      ],
+      "UpstreamHttpMethod": ["GET", "POST", "PATCH", "DELETE"],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "JwtAuthentication"
       }
@@ -61,12 +49,7 @@
         }
       ],
       "UpstreamPathTemplate": "/vehicles/{everything}",
-      "UpstreamHttpMethod": [
-        "GET",
-        "POST",
-        "PATCH",
-        "DELETE"
-      ],
+      "UpstreamHttpMethod": ["GET", "PATCH", "DELETE"],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "JwtAuthentication"
       }
@@ -81,9 +64,7 @@
         }
       ],
       "UpstreamPathTemplate": "/vehicles",
-      "UpstreamHttpMethod": [
-        "GET"
-      ],
+      "UpstreamHttpMethod": ["GET", "POST"],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "JwtAuthentication"
       }
@@ -98,12 +79,7 @@
         }
       ],
       "UpstreamPathTemplate": "/routes/{everything}",
-      "UpstreamHttpMethod": [
-        "GET",
-        "POST",
-        "PATCH",
-        "DELETE"
-      ],
+      "UpstreamHttpMethod": ["GET", "PATCH", "DELETE"],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "JwtAuthentication"
       }
@@ -118,9 +94,7 @@
         }
       ],
       "UpstreamPathTemplate": "/routes",
-      "UpstreamHttpMethod": [
-        "GET"
-      ],
+      "UpstreamHttpMethod": ["GET", "POST"],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "JwtAuthentication"
       }
