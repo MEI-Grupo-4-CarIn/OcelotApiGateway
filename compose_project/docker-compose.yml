@@ -12,34 +12,39 @@ services:
       SMTP_PASSWORD: ${SMTP_PASSWORD}
       ConnectionStrings__DefaultConnection: ${SQL_SERVER_CONNECTION_STRING}
       Elasticsearch__Url: http://elasticsearch:9200
+    restart: on-failure
+
   sql-server-docker:
     image: "mcr.microsoft.com/mssql/server:2022-latest"
     container_name: sql_server_docker
     ports:
       - "1434:1433"
     environment:
-      - ACCEPT_EULA=y
-      - SA_PASSWORD=${SA_PASSWORD}
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: ${SA_PASSWORD}
     volumes:
       - sql_data:/var/opt/mssql
+
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.15
     container_name: elasticsearch
     environment:
-      - discovery.type=single-node
+      discovery.type: single-node
     ports:
-      - 9200:9200
+      - "9200:9200"
     volumes:
       - esdata:/usr/share/elasticsearch/data
+
   kibana:
     image: docker.elastic.co/kibana/kibana:7.17.15
     container_name: kibana
     environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
     ports:
-      - 5601:5601
+      - "5601:5601"
     depends_on:
       - elasticsearch
+
   vehicles-microservice:
     image: duartefernandes/vehicles-microservice:latest
     container_name: vehicles_microservice
@@ -49,10 +54,12 @@ services:
       - mongo-db-project
       - elasticsearch
     environment:
-      - MONGO_URI=${MONGO_URI_VEHICLES}
-      - JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}
-      - SERVICE_SECRET_KEY=${SERVICE_SECRET_KEY}
-      - ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST}
+      MONGO_URI: ${MONGO_URI_VEHICLES}
+      JWT_PUBLIC_KEY: ${JWT_PUBLIC_KEY}
+      SERVICE_SECRET_KEY: ${SERVICE_SECRET_KEY}
+      ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
+    restart: on-failure
+
   routes-microservice:
     image: duartefernandes/routes-microservice:latest
     container_name: routes_microservice
@@ -62,15 +69,17 @@ services:
       - mongo-db-project
       - elasticsearch
     environment:
-      - MONGO_URI=${MONGO_URI_ROUTES}
-      - OPENROUTESERVICE_API_URL=${OPENROUTESERVICE_API_URL}
-      - OPENROUTESERVICE_API_KEY=${OPENROUTESERVICE_API_KEY}
-      - VEHICLE_MICROSERVICE_API_URL=${VEHICLE_MICROSERVICE_API_URL}
-      - AUTH_MICROSERVICE_API_URL=${AUTH_MICROSERVICE_API_URL}
-      - JWT_PUBLIC_KEY=${JWT_PUBLIC_KEY}
-      - SERVICE_SECRET_KEY=${SERVICE_SECRET_KEY}
-      - ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST}
-      - RABBITMQ_URI=${RABBITMQ_URI}
+      MONGO_URI: ${MONGO_URI_ROUTES}
+      OPENROUTESERVICE_API_URL: ${OPENROUTESERVICE_API_URL}
+      OPENROUTESERVICE_API_KEY: ${OPENROUTESERVICE_API_KEY}
+      VEHICLE_MICROSERVICE_API_URL: ${VEHICLE_MICROSERVICE_API_URL}
+      AUTH_MICROSERVICE_API_URL: ${AUTH_MICROSERVICE_API_URL}
+      JWT_PUBLIC_KEY: ${JWT_PUBLIC_KEY}
+      SERVICE_SECRET_KEY: ${SERVICE_SECRET_KEY}
+      ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
+      RABBITMQ_URI: ${RABBITMQ_URI}
+    restart: on-failure
+
   external-event-handler:
     image: duartefernandes/external-event-handler:latest
     container_name: external_event_handler
@@ -79,17 +88,20 @@ services:
     depends_on:
       - rabbitmq
     environment:
-      - RABBITMQ_URI=${RABBITMQ_URI}
+      RABBITMQ_URI: ${RABBITMQ_URI}
+    restart: on-failure
+
   mongo-db-project:
     image: mongo:latest
     container_name: mongo_db_project
     ports:
       - "27018:27017"
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
       - mongodb_data:/data/db
+
   rabbitmq:
     image: "rabbitmq:management"
     container_name: rabbitmq
@@ -97,10 +109,11 @@ services:
       - "5672:5672"
       - "15672:15672"
     environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
+
   ocelot-api-gateway:
     image: duartefernandes/ocelot-api-gateway:latest
     container_name: ocelot_api_gateway
@@ -114,6 +127,8 @@ services:
       - elasticsearch
       - mongo-db-project
       - rabbitmq
+    restart: on-failure
+
 volumes:
   sql_data:
   esdata:

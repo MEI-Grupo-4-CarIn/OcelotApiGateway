@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "78514bcc-f7e0-48ca-8378-129a9c54bb6a",
+		"_postman_id": "05dc2a67-4495-4cbc-96b2-8604b1da16f6",
 		"name": "APIGateway",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "13807037"
@@ -24,12 +24,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/auth/register",
+							"raw": "{{api-gateway-url}}auth/register",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}auth"
 							],
 							"path": [
-								"auth",
 								"register"
 							]
 						}
@@ -51,12 +50,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/auth/register",
+							"raw": "{{api-gateway-url}}auth/register",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}auth"
 							],
 							"path": [
-								"auth",
 								"register"
 							]
 						}
@@ -64,7 +62,7 @@
 					"response": []
 				},
 				{
-					"name": "Register",
+					"name": "Register Driver",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -78,12 +76,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/auth/register",
+							"raw": "{{api-gateway-url}}auth/register",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}auth"
 							],
 							"path": [
-								"auth",
 								"register"
 							]
 						}
@@ -105,12 +102,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/auth/login",
+							"raw": "{{api-gateway-url}}auth/login",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}auth"
 							],
 							"path": [
-								"auth",
 								"login"
 							]
 						}
@@ -132,12 +128,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/auth/login",
+							"raw": "{{api-gateway-url}}auth/login",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}auth"
 							],
 							"path": [
-								"auth",
 								"login"
 							]
 						}
@@ -145,7 +140,7 @@
 					"response": []
 				},
 				{
-					"name": "Login",
+					"name": "Login Driver",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -159,13 +154,48 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/auth/login",
+							"raw": "{{api-gateway-url}}auth/login",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}auth"
 							],
 							"path": [
-								"auth",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzEyNjQ4OTI3LCJpc3MiOiJBdXRoLk1pY3JvU2VydmljZSIsImF1ZCI6IkF1dGguTWljcm9TZXJ2aWNlIn0.kLy2QuLZZD8LVYQG5WORhQVp8TSWa0N2LnRLD83ndehBYUKG3iq1KINuP1kcwLlcWy4NQtPOVgXHe1pB0YmDB16OwJNQYjpbMQYLSTLzpqarH0fBlIfsXGUc1hI9S6Ipkv0U1U7InjQZfVOFaZSnQoKNY-Mvos5bUjVEJnIghleRDJNaCgZYiznqSeNo8EyGvYHCrL1UTheb5whgWN3kSegLhRvRnQcKFZpJPYLzYNZ92FA5DyHkkunuE-d0lKeiGpqlElOFqOYjZHFHEnvl2iR03lcClvQI90CDYwBE3d6gL7tE2OmsMPlCHJkr6goGshMhtaRd_Sr8qaHS3hNxcA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"ZQ/Z6XossQ4bIThAovqS2e/wvkC5MJzfEb0iyDG4KRk=\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api-gateway-url}}auth/logout",
+							"host": [
+								"{{api-gateway-url}}auth"
+							],
+							"path": [
+								"logout"
 							]
 						}
 					},
@@ -186,12 +216,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/auth/forgotPassword",
+							"raw": "{{api-gateway-url}}auth/forgotPassword",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}auth"
 							],
 							"path": [
-								"auth",
 								"forgotPassword"
 							]
 						}
@@ -205,7 +234,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImExNDg1OEBhbHVub3MuaXBjYS5wdCIsImlzUGFzc3dvcmRSZXNldCI6InRydWUiLCJleHAiOjE3MDE4NjM3MjcsImlzcyI6IkF1dGguTWljcm9TZXJ2aWNlIiwiYXVkIjoiQXV0aC5NaWNyb1NlcnZpY2UifQ.4rMo7TIk_uhDpm1E5UwuGAFmfgWju6Q1BMaOEcqnyNQ\",\r\n    \"newPassword\": \"12345678\"\r\n}",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImExNDg1OEBhbHVub3MuaXBjYS5wdCIsImlzUGFzc3dvcmRSZXNldCI6InRydWUiLCJleHAiOjE3MDI5Mjk4NDIsImlzcyI6IkF1dGguTWljcm9TZXJ2aWNlIiwiYXVkIjoiQXV0aC5NaWNyb1NlcnZpY2UifQ.PU-0nvnu052hp5faOgBu8j9Towyhs6UxCoQv3OM1tNw_-UCrABKlxys_-XWrrBFrc6qf4VYkYTGzHEwOILSM9StjDnNVgYHWaR3LwLpQ5JGCFQXT8jWtmSRskGd1V1P1JHwWcWRcn8SrvFzt1gRBXg2rTmiOIwzN8Qq-I4XvJ0uQnMyu-yGmM-r6m3PD3lv28pg3cyfnjl5Zyvc12kofpgKXqnEe8YnGxOqkLSOzYh-djePL9ekdnuq4iFNR9xHISHJzEYSVMVK5Bt-wsXYqPupVR_NpIE6uegn6GruccaHmGoDPluWKY9LoJzNtByKlL_IZ9PI8qBBn6RFBerrIpg\",\r\n    \"newPassword\": \"12345678\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -213,12 +242,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/auth/resetPassword",
+							"raw": "{{api-gateway-url}}auth/resetPassword",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}auth"
 							],
 							"path": [
-								"auth",
 								"resetPassword"
 							]
 						}
@@ -230,20 +258,22 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzEyNjE5MzczLCJpc3MiOiJBdXRoLk1pY3JvU2VydmljZSIsImF1ZCI6IkF1dGguTWljcm9TZXJ2aWNlIn0.CreW378j55dTewpQvFFIJtv4QNMTd8SL24pUwleA__BuzXndl3axjoUPec8_tFJ13l2utsdEu68PRz236T57AUvsBas6Jmd5ZLQJ-2wHbjlAL93sTXgdX7FMfHZ_DkzVUcuIWleP9ykzvzIX1ocTW-jbM3x5htF6IjXvpP_9d7-PthvUK919naL0fNaYorAQyHs_f0qa7utzXPdFsiDuznS2g6mJij7ZrkDkzEMtl6enlgSk5Li7GsKnMCzp9LL-0Fx_Rtl3_nYvGDivp0JgKOmYSLXBFNEJuDrQkmCcVZGz7Fx3dVG9nNIWyiT4X1AMLUSjVAw-XwRRlo9WiEoQLQ\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/auth/validateToken?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImExNDg1OEBhbHVub3MuaXBjYS5wdCIsImlzUGFzc3dvcmRSZXNldCI6InRydWUiLCJleHAiOjE3MDE4NjM3MjcsImlzcyI6IkF1dGguTWljcm9TZXJ2aWNlIiwiYXVkIjoiQXV0aC5NaWNyb1NlcnZpY2UifQ.4rMo7TIk_uhDpm1E5UwuGAFmfgWju6Q1BMaOEcqnyNQ",
+							"raw": "{{api-gateway-url}}auth/validateToken",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}auth"
 							],
 							"path": [
-								"auth",
 								"validateToken"
-							],
-							"query": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImExNDg1OEBhbHVub3MuaXBjYS5wdCIsImlzUGFzc3dvcmRSZXNldCI6InRydWUiLCJleHAiOjE3MDE4NjM3MjcsImlzcyI6IkF1dGguTWljcm9TZXJ2aWNlIiwiYXVkIjoiQXV0aC5NaWNyb1NlcnZpY2UifQ.4rMo7TIk_uhDpm1E5UwuGAFmfgWju6Q1BMaOEcqnyNQ"
-								}
 							]
 						}
 					},
@@ -254,20 +284,22 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"ZQ/Z6XossQ4bIThAovqS2e/wvkC5MJzfEb0iyDG4KRk=\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/auth/refreshToken?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImExNDg1OEBhbHVub3MuaXBjYS5wdCIsImlzUGFzc3dvcmRSZXNldCI6InRydWUiLCJleHAiOjE3MDE4NjM3MjcsImlzcyI6IkF1dGguTWljcm9TZXJ2aWNlIiwiYXVkIjoiQXV0aC5NaWNyb1NlcnZpY2UifQ.4rMo7TIk_uhDpm1E5UwuGAFmfgWju6Q1BMaOEcqnyNQ",
+							"raw": "{{api-gateway-url}}auth/refreshToken",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}auth"
 							],
 							"path": [
-								"auth",
 								"refreshToken"
-							],
-							"query": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImExNDg1OEBhbHVub3MuaXBjYS5wdCIsImlzUGFzc3dvcmRSZXNldCI6InRydWUiLCJleHAiOjE3MDE4NjM3MjcsImlzcyI6IkF1dGguTWljcm9TZXJ2aWNlIiwiYXVkIjoiQXV0aC5NaWNyb1NlcnZpY2UifQ.4rMo7TIk_uhDpm1E5UwuGAFmfgWju6Q1BMaOEcqnyNQ"
-								}
 							]
 						}
 					},
@@ -279,14 +311,45 @@
 			"name": "Users",
 			"item": [
 				{
-					"name": "WaitingForApproval",
+					"name": "GetListOfUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-gateway-url}}users?page=1&perPage=10&search=admin",
+							"host": [
+								"{{api-gateway-url}}users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Optional Parameter"
+								},
+								{
+									"key": "perPage",
+									"value": "10",
+									"description": "Optional Parameter"
+								},
+								{
+									"key": "search",
+									"value": "admin",
+									"description": "Optional Parameter"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "WaitingForApproval (Admin, Manager)",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzAyNzcwODk4LCJpc3MiOiJBdXRoLk1pY3JvU2VydmljZSIsImF1ZCI6IkF1dGguTWljcm9TZXJ2aWNlIn0.iuTlqBgtoyZP4m3U0aC0cEwlOGAuvimFQkxjy_mnWeEbKOg3dCC-zCN_vt0Yldv2gezJzXssBd_rEejGOhwroFcmR1ze-73mP93lIHhy4RNiZVnAIfsQV6cxMZzawnr6UKhZXWENxHhcbFIOnq9zOcluC6ZQ_ZQHHlp9aH0pCaTl9X7IqawgE1Oe9AlSPeTVr99jLMxXfaEbl_Hm1bVi5woiHDtJLSIt8fAg5rncrHyCmN3ySDziZ1XpPNp7CZuia9YUloSZny8inaMIqHd2pWqX531mSeLQPOBtd1Rh9EYQnttr1s8oS2FjDpP1MMArybGcTnc772okzrEfOYUXgg",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzAzMDE2NzExLCJpc3MiOiJBdXRoLk1pY3JvU2VydmljZSIsImF1ZCI6IkF1dGguTWljcm9TZXJ2aWNlIn0.h4P-fy5a4Mi2LzsMdW0mfNVuGj5Abk4cNxYOKsPxopzXsuLy0iiZoA_pS1LxH9myC7FmMPtKORv-0ZEfXj729ft2gcQKzRKEe1_W_RIDzv1FTL1mW8J8bWL9Jx8F-5KP3D5CsACveLCIoGBsS6ydxokhls8Olu73umKdgtrWOuWeDC30IDPEfqHjaXuH6hg01Ika3JXZEaRy1CihFv04gucT90nGqZfHFtCea5COWdowniWa17WpXaOBfOj2-tS1Wivtsj7h4XB1_Gm4n9yB9oViYUS414oenM_EX5RTHlf-MXfRpyrhVZ5FM0MYbfdSsx4b-XkoANqIYAiKGiQBaQ",
 									"type": "string"
 								}
 							]
@@ -294,27 +357,38 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api-gateway-url}}api/users/waiting-for-approval-list",
+							"raw": "{{api-gateway-url}}users/waiting-for-approval?page=1&perPage=10",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}users"
 							],
 							"path": [
-								"users",
-								"waiting-for-approval-list"
+								"waiting-for-approval"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Optional Parameter"
+								},
+								{
+									"key": "perPage",
+									"value": "10",
+									"description": "Optional Parameter"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "ApproveUser",
+					"name": "ApproveUser (Admin Manager)",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzAyNzcwODk4LCJpc3MiOiJBdXRoLk1pY3JvU2VydmljZSIsImF1ZCI6IkF1dGguTWljcm9TZXJ2aWNlIn0.iuTlqBgtoyZP4m3U0aC0cEwlOGAuvimFQkxjy_mnWeEbKOg3dCC-zCN_vt0Yldv2gezJzXssBd_rEejGOhwroFcmR1ze-73mP93lIHhy4RNiZVnAIfsQV6cxMZzawnr6UKhZXWENxHhcbFIOnq9zOcluC6ZQ_ZQHHlp9aH0pCaTl9X7IqawgE1Oe9AlSPeTVr99jLMxXfaEbl_Hm1bVi5woiHDtJLSIt8fAg5rncrHyCmN3ySDziZ1XpPNp7CZuia9YUloSZny8inaMIqHd2pWqX531mSeLQPOBtd1Rh9EYQnttr1s8oS2FjDpP1MMArybGcTnc772okzrEfOYUXgg",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzAzMDE2NzExLCJpc3MiOiJBdXRoLk1pY3JvU2VydmljZSIsImF1ZCI6IkF1dGguTWljcm9TZXJ2aWNlIn0.h4P-fy5a4Mi2LzsMdW0mfNVuGj5Abk4cNxYOKsPxopzXsuLy0iiZoA_pS1LxH9myC7FmMPtKORv-0ZEfXj729ft2gcQKzRKEe1_W_RIDzv1FTL1mW8J8bWL9Jx8F-5KP3D5CsACveLCIoGBsS6ydxokhls8Olu73umKdgtrWOuWeDC30IDPEfqHjaXuH6hg01Ika3JXZEaRy1CihFv04gucT90nGqZfHFtCea5COWdowniWa17WpXaOBfOj2-tS1Wivtsj7h4XB1_Gm4n9yB9oViYUS414oenM_EX5RTHlf-MXfRpyrhVZ5FM0MYbfdSsx4b-XkoANqIYAiKGiQBaQ",
 									"type": "string"
 								}
 							]
@@ -323,7 +397,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 2,\r\n    \"role\": 2 // optional\r\n}",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"role\": 3 // optional\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -331,20 +405,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/users/approve-user",
+							"raw": "{{api-gateway-url}}users/10/approval",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}users"
 							],
 							"path": [
-								"users",
-								"approve-user"
+								"10",
+								"approval"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "UpdateUser",
+					"name": "UpdateUser (Admin, Manager, Driver)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -368,13 +442,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/users/update-user-info",
+							"raw": "{{api-gateway-url}}users/2",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}users"
 							],
 							"path": [
-								"users",
-								"update-user-info"
+								"2"
 							]
 						},
 						"description": "This endpoint allows updating user information using an HTTP PATCH request. The request should be sent to {{auth-microservice-url}}api/users/update-user-info with an optional payload including the user's first name, last name, and email in the raw request body.\n\n### Request Body\n\n- `firstName` (optional) - The first name of the user.\n- `lastName` (optional) - The last name of the user.\n- `email` (optional) - The email address of the user.\n    \n\n### Response\n\nThe endpoint returns a 400 status code with an empty error and message in the response body."
@@ -382,34 +455,7 @@
 					"response": []
 				},
 				{
-					"name": "Register Copy",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"Duarte\",\r\n    \"lastName\": \"Fernandes\",\r\n    \"email\": \"a14858@alunos.ipca.pt\",\r\n    \"password\": \"12345678\",\r\n    \"birthDate\": \"1977-11-10\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{api-gateway-url}}api/auth/register",
-							"host": [
-								"{{api-gateway-url}}api"
-							],
-							"path": [
-								"auth",
-								"register"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "ChangePassword",
+					"name": "ChangePassword (Admin, Manager, Driver)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -433,12 +479,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/users/change-password",
+							"raw": "{{api-gateway-url}}users/change-password",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}users"
 							],
 							"path": [
-								"users",
 								"change-password"
 							]
 						}
@@ -446,7 +491,7 @@
 					"response": []
 				},
 				{
-					"name": "DeleteUser",
+					"name": "DeleteUser (Admin, Manager)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -461,37 +506,29 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{api-gateway-url}}api/users/delete-user?id=2",
+							"raw": "{{api-gateway-url}}users/2",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}users"
 							],
 							"path": [
-								"users",
-								"delete-user"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "2"
-								}
+								"2"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "AllUsersList",
+					"name": "GetUserById",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api-gateway-url}}api/users/all-users-list",
+							"raw": "{{api-gateway-url}}users/1",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}users"
 							],
 							"path": [
-								"users",
-								"all-users-list"
+								"1"
 							]
 						}
 					},
@@ -527,13 +564,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/vehicles/create",
+							"raw": "{{api-gateway-url}}vehicles",
 							"host": [
-								"{{api-gateway-url}}api"
-							],
-							"path": [
-								"vehicles",
-								"create"
+								"{{api-gateway-url}}vehicles"
 							]
 						}
 					},
@@ -564,13 +597,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/vehicles/update/6575972b0e7beb961ae509e9",
+							"raw": "{{api-gateway-url}}vehicles/6575972b0e7beb961ae509e9",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}vehicles"
 							],
 							"path": [
-								"vehicles",
-								"update",
 								"6575972b0e7beb961ae509e9"
 							]
 						}
@@ -593,13 +624,11 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{api-gateway-url}}api/vehicles/delete/657e2d3dfa1a4d032984b4f5",
+							"raw": "{{api-gateway-url}}vehicles/657e2d3dfa1a4d032984b4f5",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}vehicles"
 							],
 							"path": [
-								"vehicles",
-								"delete",
 								"657e2d3dfa1a4d032984b4f5"
 							]
 						}
@@ -622,13 +651,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api-gateway-url}}api/vehicles/657e2d3dfa1a4d032984b4f5",
+							"raw": "{{api-gateway-url}}vehicles/66253225094a1c98b3e446d0",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}vehicles"
 							],
 							"path": [
-								"vehicles",
-								"657e2d3dfa1a4d032984b4f5"
+								"66253225094a1c98b3e446d0"
 							]
 						}
 					},
@@ -650,14 +678,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api-gateway-url}}api/vehicles/getByLicensePlate/24-CD-22",
+							"raw": "{{api-gateway-url}}vehicles/NV60SNC",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}vehicles"
 							],
 							"path": [
-								"vehicles",
-								"getByLicensePlate",
-								"24-CD-22"
+								"NV60SNC"
 							]
 						}
 					},
@@ -679,12 +705,23 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api-gateway-url}}api/vehicles",
+							"raw": "{{api-gateway-url}}vehicles?perPage=100&page=1&search=black kia",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}vehicles"
 							],
-							"path": [
-								"vehicles"
+							"query": [
+								{
+									"key": "perPage",
+									"value": "100"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "black kia"
+								}
 							]
 						}
 					},
@@ -720,13 +757,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/routes/create",
+							"raw": "{{api-gateway-url}}routes",
 							"host": [
-								"{{api-gateway-url}}api"
-							],
-							"path": [
-								"routes",
-								"create"
+								"{{api-gateway-url}}routes"
 							]
 						}
 					},
@@ -757,13 +790,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{api-gateway-url}}api/routes/update/657e34ed6cb4224aa7e6b656",
+							"raw": "{{api-gateway-url}}routes/657e34ed6cb4224aa7e6b656",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}routes"
 							],
 							"path": [
-								"routes",
-								"update",
 								"657e34ed6cb4224aa7e6b656"
 							]
 						}
@@ -778,7 +809,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6Im1hbmFnZXJAZW1haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiTWFuYWdlciIsImV4cCI6MTcwMjc3MDk2MiwiaXNzIjoiQXV0aC5NaWNyb1NlcnZpY2UiLCJhdWQiOiJBdXRoLk1pY3JvU2VydmljZSJ9.V5O0UYPj7DX8eQQJcBgJIrWfealosZaMZqBZqNq2uqj_wkflIKaBUVLnedL4zHsAdJcQVXE3q3MUZU5eLDsyD7B9irkfVqnSnnz4IMFVHL4lzflef6UwTtn9etr6d-NVBgTZ1IdpDNZwYAU_XD8MbLsSY_tASMBkbt7CdnKpl4t7x2ELyrjYP4QFxe8gcrYhj0oCjZi6NTXzzeVRJsNiYvGarttqavE4BqBVtXIi7XkKp2jz0s-NCwF0AajVz24QvhpcYOBVu_AL7CLhU7yyzMVYiV82Pw8Gat6h-rSJVLnaHGb1U8b7G51duATjgJfZSHxSw4Ju4kcnU9lXmT79rg",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzEzNzQzMjc2LCJpc3MiOiJBdXRoLk1pY3JvU2VydmljZSIsImF1ZCI6IkF1dGguTWljcm9TZXJ2aWNlIn0.m31MzMiuEsaH3zshV3UnDkbPZHEERYlhhre6lZ2USykeXX71e65TT7H1-l3Y3hhEPIHaliJkvO1ca66SGP-WKM8-hOs8qOOq4qB1c4LI2zXK_P7KId34KD6Y_6hPc7DMpicu0RbpabmozEx3Cm1_XggB5iVNbyafUFJ-B53a9wR3on1uMYtmMG8FbfIAXXF2UzLBuJN96SaA1hqKYEx6zxTeSjfxA3WzzlgWfOwgxLnSxzRspDOR80wCAXuoql9DbzdYbKkj_Vf0ghxdJHGuwapurCGDlgPMSyP9D87gtqJAJoCs68h2Te-P1uYnzpkxVaCa_5Lb2TfAUAu17jbNnQ",
 									"type": "string"
 								}
 							]
@@ -786,12 +817,28 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api-gateway-url}}api/routes",
+							"raw": "{{api-gateway-url}}routes?perPage=10&page=1&status=pending",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}routes"
 							],
-							"path": [
-								"routes"
+							"query": [
+								{
+									"key": "perPage",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "Braga",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "pending"
+								}
 							]
 						}
 					},
@@ -813,12 +860,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api-gateway-url}}api/routes/657e34ed6cb4224aa7e6b656",
+							"raw": "{{api-gateway-url}}routes/657e34ed6cb4224aa7e6b656",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}routes"
 							],
 							"path": [
-								"routes",
 								"657e34ed6cb4224aa7e6b656"
 							]
 						}
@@ -841,13 +887,11 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{api-gateway-url}}api/routes/delete/65758b4994d038472adc9d02",
+							"raw": "{{api-gateway-url}}routes/65758b4994d038472adc9d02",
 							"host": [
-								"{{api-gateway-url}}api"
+								"{{api-gateway-url}}routes"
 							],
 							"path": [
-								"routes",
-								"delete",
 								"65758b4994d038472adc9d02"
 							]
 						}
