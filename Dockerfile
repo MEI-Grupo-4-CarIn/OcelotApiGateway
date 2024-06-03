@@ -26,8 +26,8 @@ RUN apt-get update && apt-get install -y curl gnupg
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-get install -y nodejs
 
-COPY compose_project /compose_project
-WORKDIR /compose_project
+COPY compose_project /app
+WORKDIR /app
 RUN npm install
 
 WORKDIR /app

@@ -141,6 +141,10 @@ services:
       - elasticsearch
       - mongo-db-project
       - rabbitmq
+    environment:
+      SQL_SERVER_CONNECTION_STRING: ${SQL_SERVER_CONNECTION_STRING}
+      MONGO_URI_VEHICLES: ${MONGO_URI_VEHICLES}
+      MONGO_URI_ROUTES: ${MONGO_URI_ROUTES}
     restart: on-failure
 
 volumes:
