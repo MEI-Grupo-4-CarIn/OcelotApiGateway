@@ -16,8 +16,11 @@ for (const part of connectionStringParts) {
   const [key, value] = part.split("=");
   switch (key.toLowerCase()) {
     case "server":
-      sqlConfig.server = "localhost";
-      sqlConfig.port = 1434;
+      const [server, port] = value.split(",");
+      sqlConfig.server = server;
+      if (port) {
+        sqlConfig.port = parseInt(port);
+      }
       break;
     case "database":
       sqlConfig.database = value;
