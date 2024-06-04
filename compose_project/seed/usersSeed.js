@@ -40,6 +40,8 @@ for (const part of connectionStringParts) {
   }
 }
 
+sqlConfig.requestTimeout = 60000;
+
 async function seedUsers(totalEntries, batchSize) {
   const pool = new sql.ConnectionPool(sqlConfig);
 

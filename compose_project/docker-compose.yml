@@ -129,7 +129,7 @@ services:
     restart: on-failure
 
   ocelot-api-gateway:
-    image: duartefernandes/ocelot-api-gateway:latest
+    build: ..
     container_name: ocelot_api_gateway
     ports:
       - "9000:8080"
