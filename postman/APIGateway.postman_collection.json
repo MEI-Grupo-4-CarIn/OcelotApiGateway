@@ -395,23 +395,21 @@
 						},
 						"method": "POST",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": 3,\r\n    \"role\": 3 // optional\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{api-gateway-url}}users/10/approval",
+							"raw": "{{api-gateway-url}}users/3/approval?roleId=2",
 							"host": [
 								"{{api-gateway-url}}users"
 							],
 							"path": [
-								"10",
+								"3",
 								"approval"
+							],
+							"query": [
+								{
+									"key": "roleId",
+									"value": "2",
+									"description": "// Optional, Default = 3 (Driver)"
+								}
 							]
 						}
 					},
