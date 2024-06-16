@@ -42,7 +42,7 @@ class RoutesSeed {
         startDate: faker.date.future(),
         estimatedEndDate: faker.date.future(),
         distance: faker.number.float({ min: 10, max: 500 }),
-        duration: `${faker.number.int({ min: 1, max: 10 })} hours`,
+        duration: `${faker.number.int({ min: 0, max: 23 })}:${faker.number.int({ min:10, max: 59 })}`,
         status: faker.helpers.arrayElement(["pending", "inProgress", "completed", "cancelled"], 1),
         avoidTolls: faker.datatype.boolean(),
         avoidHighways: faker.datatype.boolean(),

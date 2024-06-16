@@ -135,9 +135,9 @@ function generateUsersData(numEntries) {
       new User(
         faker.person.firstName(),
         faker.person.lastName(),
-        faker.internet.exampleEmail(),
+        faker.internet.email({ provider: 'carin.com' }),
         faker.internet.password({ length: 10, memorable: true }),
-        faker.date.past(),
+        faker.date.past({ years: 50 }),
         faker.number.int({ min: 1, max: 3 }), // RoleId
         1, // Status (1 = Active)
         faker.date.past(),
