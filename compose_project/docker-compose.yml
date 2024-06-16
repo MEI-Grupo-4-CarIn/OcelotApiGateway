@@ -151,6 +151,16 @@ services:
       MONGO_URI_ROUTES: ${MONGO_URI_ROUTES}
     restart: on-failure
 
+  carin-frontend:
+    image: duartefernandes/carin-frontend:latest
+    container_name: carin_frontend
+    ports:
+      - "3003:3003"
+    environment:
+      - NEXT_PUBLIC_API_GATEWAY_BASE_URL: ${NEXT_PUBLIC_API_GATEWAY_BASE_URL}
+      - NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+    restart: on-failure
+
 volumes:
   sql_data:
   esdata:
