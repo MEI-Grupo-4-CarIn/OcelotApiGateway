@@ -32,6 +32,7 @@ This API Gateway is part of a larger project that includes other microservices. 
    - `MONGO_INITDB_ROOT_PASSWORD`: The root password for your MongoDB database.
    - `MONGO_URI_ROUTES`: The MongoDB URI for the routes microservice.
    - `MONGO_URI_VEHICLES`: The MongoDB URI for the vehicles microservice.
+   - `MONGO_URI_NOTIFICATIONS`: The MongoDB URI for the event-notifications handler.
    - `OPENROUTESERVICE_API_URL`: The URL for the OpenRouteService API.
    - `OPENROUTESERVICE_API_KEY`: Your OpenRouteService API key.
    - `VEHICLE_MICROSERVICE_API_URL`: The URL for the vehicles microservice.
@@ -41,6 +42,7 @@ This API Gateway is part of a larger project that includes other microservices. 
    - `SMTP_PASSWORD`: Your SMTP password.
    - `ELASTICSEARCH_HOST`: The Elasticsearch host.
    - `RABBITMQ_URI`: The base URL of your _RabbitMQ_ instance.
+   - `FIREBASE_SERVICE_ACCOUNT_KEY`: The firebase servide account key to use on `firebase-admin`.
 
 3. Navigate to `compose_project` folder and run the Docker Compose file to start all the services:
 
