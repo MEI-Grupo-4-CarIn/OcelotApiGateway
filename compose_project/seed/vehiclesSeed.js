@@ -40,7 +40,7 @@ class VehiclesSeed {
       seedData.push({
         model: faker.vehicle.model(),
         brand: faker.vehicle.manufacturer(),
-        licensePlate: faker.string.alphanumeric({ casing: "upper", length: 10 }),
+        licensePlate: faker.vehicle.vrm(),
         vin: faker.vehicle.vin(),
         color: faker.vehicle.color(),
         registerDate: faker.date.past(),
@@ -50,7 +50,7 @@ class VehiclesSeed {
         capacity: faker.number.int({ min: 1, max: 9 }),
         fuelType: faker.helpers.arrayElement(["diesel", "petrol", "electric"], 1),
         averageFuelConsumption: faker.number.float({ min: 3, max: 20, multipleOf: 0.01 }),
-        status: faker.helpers.arrayElement(["none", "permanent", "inUse", "repairing"], 1),
+        status: faker.helpers.arrayElement(["none", "inUse", "repairing"], 1),
         isDeleted: false,
         createdAt: faker.date.past(),
         updatedAt: faker.date.recent(),
