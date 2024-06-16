@@ -80,15 +80,19 @@ services:
       RABBITMQ_URI: ${RABBITMQ_URI}
     restart: on-failure
 
-  external-event-handler:
-    image: duartefernandes/external-event-handler:latest
-    container_name: external_event_handler
+  event-notification-handler:
+    image: duartefernandes/event-notification-handler:latest
+    container_name: event_notification_handler
     ports:
       - "3002:3002"
     depends_on:
       - rabbitmq
     environment:
+      MONGO_URI: ${MONGO_URI_NOTIFICATIONS}
+      ELASTICSEARCH_HOST: ${ELASTICSEARCH_HOST}
       RABBITMQ_URI: ${RABBITMQ_URI}
+      JWT_PUBLIC_KEY: ${JWT_PUBLIC_KEY}
+      FIREBASE_SERVICE_ACCOUNT_KEY: ${FIREBASE_SERVICE_ACCOUNT_KEY}
     restart: on-failure
 
   mongo-db-project:
