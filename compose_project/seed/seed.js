@@ -18,8 +18,8 @@ async function seed() {
     const vehiclesSeed = new VehiclesSeed(vehiclesConnection);
     const routesSeed = new RoutesSeed(routesConnection);
 
-    const totalEntries = 1000000;
-    const batchSize = 10000;
+    const totalEntries = 10000;
+    const batchSize = 1000;
 
     console.log(`-- Start seeding users with ${totalEntries} entries...`);
     await seedUsers(totalEntries, batchSize);
