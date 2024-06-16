@@ -16,8 +16,11 @@ for (const part of connectionStringParts) {
   const [key, value] = part.split("=");
   switch (key.toLowerCase()) {
     case "server":
-      sqlConfig.server = "localhost";
-      sqlConfig.port = 1434;
+      const [server, port] = value.split(",");
+      sqlConfig.server = server;
+      if (port) {
+        sqlConfig.port = parseInt(port);
+      }
       break;
     case "database":
       sqlConfig.database = value;
@@ -130,9 +133,9 @@ function generateUsersData(numEntries) {
       new User(
         faker.person.firstName(),
         faker.person.lastName(),
-        faker.internet.exampleEmail(),
+        faker.internet.email({ provider: 'carin.com' }),
         faker.internet.password({ length: 10, memorable: true }),
-        faker.date.past(),
+        faker.date.past({ years: 50 }),
         faker.number.int({ min: 1, max: 3 }), // RoleId
         1, // Status (1 = Active)
         faker.date.past(),

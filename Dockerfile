@@ -21,4 +21,14 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 COPY --from=build /src/appsettings.json .
+
+RUN apt-get update && apt-get install -y curl gnupg
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get install -y nodejs
+
+COPY compose_project /app
+WORKDIR /app
+RUN npm install
+
+WORKDIR /app
 ENTRYPOINT ["dotnet", "OcelotApiGateway.dll"]
