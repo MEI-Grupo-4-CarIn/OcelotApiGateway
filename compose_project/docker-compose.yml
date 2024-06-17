@@ -151,6 +151,13 @@ services:
       MONGO_URI_ROUTES: ${MONGO_URI_ROUTES}
     restart: on-failure
 
+  carin-frontend:
+    image: duartefernandes/carin-frontend:latest
+    container_name: carin_frontend
+    ports:
+      - "3003:3003"
+    restart: on-failure
+
 volumes:
   sql_data:
   esdata:

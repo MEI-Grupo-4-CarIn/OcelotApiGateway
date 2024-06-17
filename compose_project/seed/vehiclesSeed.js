@@ -40,7 +40,7 @@ class VehiclesSeed {
       seedData.push({
         model: faker.vehicle.model(),
         brand: faker.vehicle.manufacturer(),
-        licensePlate: faker.vehicle.vrm(),
+        licensePlate: faker.string.alphanumeric({ casing: "upper", length: 10 }),
         vin: faker.vehicle.vin(),
         color: faker.vehicle.color(),
         registerDate: faker.date.past(),
