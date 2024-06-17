@@ -40,6 +40,8 @@ for (const part of connectionStringParts) {
   }
 }
 
+sqlConfig.requestTimeout = 60000;
+
 async function seedUsers(totalEntries, batchSize) {
   const pool = new sql.ConnectionPool(sqlConfig);
 
@@ -133,7 +135,7 @@ function generateUsersData(numEntries) {
       new User(
         faker.person.firstName(),
         faker.person.lastName(),
-        faker.internet.email({ provider: 'carin.com' }),
+        faker.internet.email({ provider: "carin.com" }),
         faker.internet.password({ length: 10, memorable: true }),
         faker.date.past({ years: 50 }),
         faker.number.int({ min: 1, max: 3 }), // RoleId

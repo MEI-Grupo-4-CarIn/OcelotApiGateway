@@ -21,7 +21,7 @@ const VehicleSchema = new Schema(
     averageFuelConsumption: { type: Number, required: true },
     status: {
       type: String,
-      enum: ["none", "permanent", "inUse", "repairing"],
+      enum: ["none", "inUse", "repairing"],
       default: "none",
     },
     isDeleted: { type: Boolean, default: false },
@@ -31,14 +31,12 @@ const VehicleSchema = new Schema(
   { timestamps: true }
 );
 
-VehicleSchema.index({
-  model: "text",
-  brand: "text",
-  licensePlate: "text",
-  vin: "text",
-  color: "text",
-  category: "text",
-});
+VehicleSchema.index({ model: 1 });
+VehicleSchema.index({ brand: 1 });
+VehicleSchema.index({ licensePlate: 1 });
+VehicleSchema.index({ vin: 1 });
+VehicleSchema.index({ color: 1 });
+VehicleSchema.index({ category: 1 });
 VehicleSchema.index({ fuelType: 1 });
 VehicleSchema.index({ status: 1 });
 VehicleSchema.index({ fuelType: 1, status: 1 });
